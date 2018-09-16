@@ -1,0 +1,59 @@
+# Swift IOS
+
+var dictionary:[Int:String] = [1:"Nam",2:"Thuy",3:"Linh",4:"T.Anh"]
+
+// sửa value key 1 trong dictionary với 2 cách sau:
+dictionary[1] = "Hoang Nam"
+dictionary.updateValue("Hoang Van Nam", forKey:1)
+print(dictionary)
+
+// để xóa dictionary
+//dictionary = [:]
+//print(dictionary)
+
+// in ra giá trị key, value trong dictionary
+print("--------------------")
+for (key,value) in dictionary {
+    print("key: \(key), value: \(value)")
+}
+
+// in ra giá trị key trong dictionary
+print("--------------------")
+for key in dictionary.keys {
+    print("key: \(key)")
+}
+
+// in ra giá trị value trong dictionary 
+ print("--------------------")
+ for value in dictionary.values {
+     print("value: \(value)")
+ }
+
+ // tạo ra 1 mảng để chưa key vs value của dictionary
+ print("--------------------")
+ let allKey = [Int](dictionary.keys)
+ let allValue = [String](dictionary.values)
+print(allKey)
+print(allValue)
+
+----------------------------------------
+
+[2: "Thuy", 3: "Linh", 1: "Hoang Van Nam", 4: "T.Anh"]
+--------------------
+key: 2, value: Thuy
+key: 3, value: Linh
+key: 1, value: Hoang Van Nam
+key: 4, value: T.Anh
+--------------------
+key: 2
+key: 3
+key: 1
+key: 4
+--------------------
+value: Thuy
+value: Linh
+value: Hoang Van Nam
+value: T.Anh
+--------------------
+[2, 3, 1, 4]
+["Thuy", "Linh", "Hoang Van Nam", "T.Anh"]
