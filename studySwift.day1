@@ -1,0 +1,58 @@
+var array = Array(repeating:0.0, count: 3)
+var name:[String] = ["Nam","Thuy"]
+var int:[Int] = [4,5,6,7,6]
+var string:String = "Nam"
+let string1 = String(string)
+print(string1)
+
+assert(name.contains("Thuy"), "name not Thuy")
+precondition(name.contains("Nam"), "name not Nam")
+print(name.contains("Nam"))
+
+print(name.startIndex)
+print(name.index(before:name.endIndex))
+
+for index in string.indices {
+    print(index)
+}
+name.append("Linh")
+print(name)
+name.insert("T.Anh", at: name.endIndex)
+print(name)
+
+
+let fullname = "mr Hoang Van Nam dep trai"
+let indexStart = fullname.startIndex
+let indexEnd = fullname.index(fullname.startIndex, offsetBy:8)
+let fullname1 = fullname[indexStart...indexEnd]
+
+print(fullname1)
+
+if fullname.hasPrefix("mr Hoang") {
+    print("full name hasPrefix: mr Hoang")
+} else {
+    print("full name not hasPrefix: mr Hoang")
+}
+if fullname.hasSuffix("dep trai") {
+    print("full name hasSuffix: dep trai")
+} else {
+    print("full name not hasSuffix: dep trai")
+}
+
+print(fullname.uppercased())
+
+-----------------------------------------------
+
+Nam
+true
+0
+1
+Index(_compoundOffset: 0, _cache: Swift.String.Index._Cache.utf16)
+Index(_compoundOffset: 4, _cache: Swift.String.Index._Cache.character(1))
+Index(_compoundOffset: 8, _cache: Swift.String.Index._Cache.character(1))
+["Nam", "Thuy", "Linh"]
+["Nam", "Thuy", "Linh", "T.Anh"]
+mr Hoang 
+full name hasPrefix: mr Hoang
+full name hasSuffix: dep trai
+MR HOANG VAN NAM DEP TRAI
