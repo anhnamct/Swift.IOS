@@ -1,0 +1,103 @@
+# Swift.IOS
+
+// vòng for chạy từ 1 tới 5
+for index in 1...10 {
+    print("index = \(index)")
+}
+
+// vòng for chạy từ 1 tới nhỏ hơn 5 = 4
+print("------------------------")
+for index in 1..<5 {
+    print("index = \(index)")
+}
+
+// vòng for với biến k cần sử dụng
+print("------------------------")
+for _ in 1...5 {
+    print("Hello boy")
+}
+
+// vòng for chỉ định mỗi lần nhảy mấy bước, ở dưới nó chạy từ 1 tới nhỏ hơn 10 = 9
+print("------------------------")
+for index in stride(from:1,to:10,by:3){
+    print("index by 3 = \(index)")
+}
+
+// vòng lặp while dưới đây nó chạy vào 100 lần, tới khi value = 100 thì k chạy vào nữa,
+// mỗi lần chạy vào nó + giá trị value lên 1 đơn vị
+print("------------------------")
+var value = 0
+while value < 100 {
+    value = value + 1
+}
+print(value)
+
+// tương tự như while ta có 1 dạng nữa là repeat, while,
+// ở đây nó sẽ trừ giá trị value mỗi lần đi 1 đơn vị, tới khi nào giá trị value k còn lớn hơn 1
+print("------------------------")
+repeat {
+    value = value - 1
+} while value > 1
+print(value)
+
+// switch trong swift ta có thể sử dụng các case như sau:
+print("------------------------")
+var number = 5
+switch number {
+case 1...3:
+    print("diem kem")
+case 4..<6:
+    print("diem trung binh")
+case 6...8:
+    print("diem kha")
+case 9...10:
+    print("diem gioi")
+default:
+    print("diem k xac dinh")
+}
+
+var name = "Hoang Nam"
+
+switch name {
+case "Hoang Nam","Truong Thuy":
+    print("name chua \(name)")
+case "Van Linh", "Tuan Anh":
+    print("name chua \(name)")
+default:
+    print("k xac dinh")
+}
+
+-------------------------------------------
+
+index = 1
+index = 2
+index = 3
+index = 4
+index = 5
+index = 6
+index = 7
+index = 8
+index = 9
+index = 10
+------------------------
+index = 1
+index = 2
+index = 3
+index = 4
+------------------------
+Hello boy
+Hello boy
+Hello boy
+Hello boy
+Hello boy
+------------------------
+index by 3 = 1
+index by 3 = 4
+index by 3 = 7
+------------------------
+100
+------------------------
+1
+------------------------
+diem trung binh
+name chua Hoang Nam
