@@ -1,0 +1,58 @@
+# Swift.IOS
+
+//closure la mot ham khong ten, giong nhu 1 con tro ham
+var tenSV:[String] = ["Nam", "Thuy", "Linh", "Anh"]
+var sortTenSV = tenSV.sorted(by: {
+    (s1:String, s2:String) -> Bool in return s1 > s2
+})
+print(sortTenSV)
+// o day, ta co the viet lai closure sortTenSV nhu 1 func nhu sau:
+// trong truong hop ta chi su dung 1 lan thi chi can khoi tao closure nhu tren,
+// con trong truong hop ta can su dung lai nhieu lan thi khoi tao func nhu duoi
+func sortTenSV(s1:String, s2:String) -> Bool {
+    return s1 < s2
+}
+var sortTenSV2 = tenSV.sorted(by: sortTenSV)
+print(sortTenSV2)
+
+// vi du ve closure khac
+let number = [1,2,3,4,5]
+var binhphuong = number.map( {
+    (number) -> Int in return number * number
+})
+print(binhphuong)
+
+// ta co 1 func trong do co them 1 closure
+// o day func dotaks no goi lai chinh no theo tuan tu, xong roi moi thuc hien "This is a do task 1"
+func doTask1(closure: () -> Void) {
+    print("do task 1")
+    closure()
+}
+print(doTask1 {
+    print("This is a task 1")
+})
+
+// mot func chua closure va co tham so truyen vao
+func doTask2(closure2:(_ responseString:String, _ errCode: Int) -> Void) {
+    print("do task 2")
+    closure2("success",200)
+}
+doTask2 {(responseStr, errorCode) in
+    print("This is a task 2, response: \(responseStr), errorCode: \(errorCode)")
+}
+
+// chung ta co the khoi tao 1 bien nhu 1 closure, chi khi nao chung ta goi thi no moi khoi tao bien va chay
+let congViecKho = {
+    print("Day la cong viec kho")
+}
+congViecKho()
+// chung ta co the gan 1 bien khac = voi bien congViecKho, khi ta goi 1 trong 2 thi no dau chay tuong duong nhau,
+// vi chung cung referenc type toi cung phan vung bo nho tuong duong nhau
+let congViecRatKho = congViecKho
+congViecRatKho()
+
+// chung ta co the auto closere, khi ta truyen vao no se tu dong convert sang closure
+func doSomeWork(hardWork: @autoclosure() -> Void) {
+    hardWork()
+}
+doSomeWork(hardWork: print("day la 1 cong viec rat kho, va no la closure"))
