@@ -1,0 +1,72 @@
+# Swift.IOS
+
+// func la 1 ham thuc thi cac khoi, cau lenh ben trong no, no co cac tham so truyen vao va kieu gia tri tra ve,
+// dang func co tham so truyen vao va co kieu tra ve
+func tinhtong(a:Int, b:Int) -> Int {
+    let c = a + b
+    return c
+}
+print(tinhtong(a: 10, b: 20))
+
+// dang func khong co tham so truyen vao va kieu tra ve
+func sayHello() {
+    print("Hello World")
+}
+print(sayHello())
+
+// dang func khong co tham so truyen vao, nhung co kieu tra ve
+func xinchao() -> String {
+    return "Xin chao cac ban"
+}
+print(xinchao())
+
+// dang func co kieu tham so truyen vao, va co nhieu kieu tra ve, giup ta khong can phai viet nhieu func cung
+func tinhtongvahieu(a:Int, b:Int) -> (tong:Int, hieu:Int){
+    let result = (a + b, a - b)
+    return result
+}
+print(tinhtongvahieu(a: 10, b: 5))
+
+// dang func ma tham so truyen vao co dau "_" nhu sau
+func tinhtichvathuong(_ a:Int, _ b:Int) -> (nhan:Int, thuong:Int) {
+    let result = (a * b, a / b)
+    return result
+}
+print(tinhtichvathuong(10, 5))
+
+// dang func co tham so truyen vao la gia tri mac dinh, trong truong hop ta k gan gia tri cho func
+func tich2so (_ a:Int = 10, _ b:Int = 5) -> Int {
+    return a * b
+}
+print(tich2so())
+
+// dang func co nhieu tham so truyen vao va co kieu gia tri tra ve
+func sum(_ number:Int...) -> Int {
+    var total = 0
+    for num in number {
+        total = total + num
+    }
+    return total
+}
+print(sum(1,2,3,4,5,6,7,8,9))
+
+// dang func co tham so truyen vao dang con tro
+var aString = "Xin chao Viet Nam"
+print("aString before: \(aString)")
+func inOut(_ a: inout String) {
+    aString = "Xin chao Viet Nam 2018"
+}
+print("aString after: \(aString)")
+
+// dang func goi 1 func ben trong no
+func funccha() {
+    func funccon1() -> String {
+        return "Toi la Hoang Van Nam"
+    }
+    func funccon2() -> String {
+        return "Toi hien dang study Swift"
+    }
+    funccon1()
+    funccon2()
+}
+print(funccha())
