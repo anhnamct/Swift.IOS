@@ -1,0 +1,66 @@
+# Swift.IOS
+
+// struct la kieu reference type, khi ta gan 1 bien bang 1 bien cho truoc,
+// neu ta thay doi gia tri 1 trong 2 bien, thi bien con lai khong thay doi theo
+// trong struct thi da co ham init mac dinh
+// struct k ho tro ke thua
+
+struct Shape {
+    var width:Float = 0.0
+    var height = 0.0
+}
+
+var aShape = Shape(width: 120.0, height: 100.0)
+var aShape2 = aShape
+aShape2.height = 80.0
+print(aShape)
+print(aShape2)
+
+// class la kieu value type, khi ta gan 1 bien bang 1 bien cho truoc,
+// neu ta thay doi gia tri 1 trong 2 bien thi bien con lai cung thay doi theo
+// class k co ham init mac dinh
+// class co ho tro ke thua
+
+class Song {
+    var nameSong:String = ""
+    var ngheSi:String = ""
+    init(name:String, ngheSi:String) {
+        self.nameSong = name
+        self.ngheSi = ngheSi
+    }
+}
+
+var song1 = Song(name: "Em cua ngay hom qua", ngheSi: "Son Tung MTP")
+
+var song2 = song1
+song2.nameSong = "Lac Troi"
+print(song1.nameSong)
+print(song2.nameSong)
+
+struct BXHMuSic {
+    var top: Song
+    var date:Int
+}
+// o day ta khoi tao 1 struct BXHMuSic, ta co bien top la kieu class Song
+
+var top1 = BXHMuSic(top:Song(name:"bai hat top 1", ngheSi: "nghe si top 1"), date:29092018)
+var top2 = top1 // ta khoi tao object top 2 = top 1,
+top2.top.nameSong = "bai hat top 2" // ta thay doi gia tri nameSong cua top2
+top2.top.ngheSi = "nghe si top 2"   // ta thay doi gia tri ngheSi cua top2
+top2.date = 30092018                // ta thay doi gia tri date cua top2
+print("ten bai hat top 1: \(top1.top.nameSong), nghe si top 1: \(top1.top.ngheSi), date: \(top1.date)")
+print("ten bai hat top 2: \(top2.top.nameSong), nghe si top 2: \(top2.top.ngheSi), date: \(top2.date)")
+
+// ket qua in ra la gia tri nameSong, ngheSi cua top1 va top2 deu thay doi,
+// vi no cung tro vao class Song la value type, cho nen khi gia tri top2 thay doi, thi gia tri top1 cung thay doi theo
+// ket qua in ra gia tri date cua top1, top2 la khac nhau, vi trong struct la kieu reference type,
+// cho nen khi ta thay doi kieu date cua top2 thi date top1 k he thay doi theo
+
+----------------------------------------------
+
+Shape(width: 120.0, height: 100.0)
+Shape(width: 120.0, height: 80.0)
+Lac Troi
+Lac Troi
+ten bai hat top 1: bai hat top 2, nghe si top 1: nghe si top 2, date: 29092018
+ten bai hat top 2: bai hat top 2, nghe si top 2: nghe si top 2, date: 30092018
