@@ -1,0 +1,61 @@
+# Swift.IOS
+
+// khi ta khoi tao 1 bien, ma them thuoc tinh "lazy", co nghia la no chi duoc khoi tao va chay khi ta goi toi no
+// khi chua goi thi gia tri no la nil
+class Music {
+    lazy var getMusic:String = {
+        print("This is a Music")
+        return "Em cu di di"
+    }()
+}
+var music = Music()
+print(music.getMusic)
+
+// get, set trong swift
+
+class MayTinh {
+    var x:Double = 0.0
+    var binhPhuongX:Double {
+        get {
+            return x * x  // khi ta get gia tri, no se duoc luu vao newValue de su dung trong ham set
+        }
+        set {
+            x = sqrt(newValue) // gia tri newValue mac dinh khi chay ham get return x * x
+        }
+    }
+    var getX:Double {  // ham nay chi co the doc, k the ghi
+        get {
+            return x
+        }
+    }
+    init(x:Double) {
+        self.x = x
+    }
+    
+}
+var maytinh = MayTinh(x:10.0)
+print(maytinh.binhPhuongX)
+print(maytinh.getX)
+
+// willSet truoc khi set, didSet sau khi set
+class Info {
+    var name:String = "nil" {
+        willSet {
+            print("Gia tri chuan bi set \(newValue)")
+        }
+        didSet {
+            print("da set gia tri, gia tri cu truoc khi set \(oldValue)")
+        }
+    }
+}
+var name = Info()
+name.name = "Nam"
+
+------------------------------------
+
+This is a Music
+Em cu di di
+100.0
+10.0
+Gia tri chuan bi set Nam
+da set gia tri, gia tri cu truoc khi set nil
