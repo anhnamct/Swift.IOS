@@ -51,6 +51,18 @@ class Info {
 var name = Info()
 name.name = "Nam"
 
+// ta co the khoi tao bien kieu class, static
+// co the goi bien thong qua ten class.tenbien ma k can phai co ham khoi tao
+class QuatDien {
+    static var title:String = "day la quat dien"
+    static let pi:Float = 3.1416
+    class var doublePi:Float {
+        return pi * pi
+    }
+}
+print(QuatDien.title)
+print(QuatDien.doublePi)
+
 ------------------------------------
 
 This is a Music
@@ -59,3 +71,5 @@ Em cu di di
 10.0
 Gia tri chuan bi set Nam
 da set gia tri, gia tri cu truoc khi set nil
+day la quat dien
+9.86965
