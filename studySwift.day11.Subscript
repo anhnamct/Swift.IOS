@@ -1,0 +1,43 @@
+# Swift.IOS
+
+// subscript là lối tắt để truy xuất thành viên của một tập hợp, danh sách hoặc trình tự
+struct TinhToan {
+    let number:Int 
+    subscript (index:Int) -> Int {
+        return number * index
+    }
+}
+var tinhtoan = TinhToan(number:10)
+print(tinhtoan[10])
+
+// sử dụng subscript trong mảng
+struct Name {
+    var string = [
+        ["Nam", "Thuy", "Linh"],
+        ["T.Anh", "Ban", "Bac"]
+    ]
+    subscript(row:Int , colum:Int) -> String {
+        get {
+            return string[row][colum]
+        }
+        set {
+            string[row][colum] = newValue
+        }
+    }
+}
+var name = Name()
+print(name[0,0])
+
+/*
+public subscript (i: Int) -> Character {
+        return self[index(i)]
+    }
+
+public subscript (i: Int) -> String {
+    return String(self[i] as Character)
+}
+
+public subscript (r: Range<Int>) -> String {
+    return substring(with: index(r.lowerBound)..<index(r.upperBound))
+}
+*/
