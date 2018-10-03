@@ -1,0 +1,70 @@
+# Swift.IOS
+
+class People {
+    var name: String = ""
+    var age:Int = 0
+    // phương thức tương đương hàm init
+    func create(name:String, age:Int) {
+        self.name = name
+        self.age = age
+    }
+    // phương thức tưởng đương hàm toString
+    func toString() {
+        print("name: \(self.name), age: \(self.age)")
+    }
+    // phương thức để khởi tạo, di chuyển từ một giá trị có sẵn qua giá trị mới
+    func createAndMove(name:String, age:Int) -> People {
+        var newPeople = People()
+        newPeople.create(name:name, age:age)
+       return newPeople
+    }
+}
+var people = People()
+people.create(name:"Nam", age:24)
+people.toString()
+var newPeople = people.createAndMove(name:"Mimi", age: 1)
+if people !== newPeople {
+    print("Hai giá trị có vùng nhớ riêng biệt khác nhau")
+}
+
+// func có thể thay đổi giá trị ban đầu, ta cần phải thêm mutating trước phương thức
+enum Compass {
+    case east, west, south, north
+    mutating func moveToNext() {
+        switch self {
+        case .east:
+            self = .west
+        case .west:
+            self = .south
+        case .south:
+            self = .north
+        case .north:
+            self = .east
+        }
+    }
+}
+var compas = Compass.east
+compas.moveToNext()
+print("compass: \(compas)")
+
+// phuong thuc kieu static, class
+class Numbers {
+    static let pi:Float = 3.1416
+    static func tinhtong(a:Int, b:Int) -> Int {
+        return a + b
+    }
+    class func dientichhinhtron(bankinh: Float) -> Float {
+        let dientich = pi * bankinh * bankinh
+        return dientich
+    }
+}
+print("tinh tong 10 + 5 = \(Numbers.tinhtong(a:10, b:5))")
+print("ban kinh = 5 co dien tich la = \(Numbers.dientichhinhtron(bankinh: 5.0))")
+
+--------------------------------------
+
+name: Nam, age: 24
+Hai giá trị có vùng nhớ riêng biệt khác nhau
+compass: west
+tinh tong 10 + 5 = 15
+ban kinh = 5 co dien tich la = 78.53999
